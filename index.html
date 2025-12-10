@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuôi Tôi Đi - Trang Donate Chuyên Nghiệp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="root">
+        <div class="min-h-screen p-4 md:p-8">
+            <div class="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto items-start">
+                <!-- Form bên trái -->
+                <div class="w-full lg:w-1/3 glass-panel p-6 rounded-2xl sticky top-8 max-h-[90vh] overflow-y-auto">
+                    <h2 class="text-2xl font-hand font-bold text-gray-800 mb-4 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                            <path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"></path>
+                            <path d="m14 7 3 3"></path>
+                            <path d="M5 6v4"></path>
+                            <path d="M19 14v4"></path>
+                            <path d="M10 2v2"></path>
+                            <path d="M7 8H3"></path>
+                            <path d="M21 16h-4"></path>
+                            <path d="M11 3H9"></path>
+                        </svg>
+                        Thiết kế trang của bạn
+                    </h2>
+                    <p class="text-sm text-gray-600 mb-6">Nhập thông tin bên dưới, trang bên phải sẽ tự cập nhật.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-gray-500 uppercase">Tên của bạn</label>
+                            <input id="name" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="Ví dụ: Nguyễn Văn A" type="text" value="BẠN TỐT BỤNG">
+                        </div>
+                        
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-gray-500 uppercase">Câu Slogan "Than nghèo"</label>
+                            <input id="slogan" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="Một câu quote hài hước..." type="text" value="&quot;Sự giàu có của tôi phụ thuộc vào lòng tốt của bạn&quot;">
+                        </div>
+                        
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-gray-500 uppercase">Avatar URL</label>
+                            <input id="avatarUrl" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="Link ảnh đại diện" type="text" value="https://api.dicebear.com/7.x/fun-emoji/svg?seed=Lucky">
+                        </div>
+                        
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-gray-500 uppercase">Tên Ngân Hàng</label>
+                            <input id="bankName" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="Techcombank, VCB..." type="text" value="Techcombank">
+                        </div>
+                        
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-gray-500 uppercase">Số Tài Khoản</label>
+                            <input id="bankAccount" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="1234..." type="text" value="1900 1234 5678">
+                        </div>
+                        
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-gray-500 uppercase">Ví Điện Tử (Tên)</label>
+                            <input id="walletName" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="Momo, ZaloPay..." type="text" value="Momo">
+                        </div>
+                        
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-gray-500 uppercase">Số Ví Điện Tử</label>
+                            <input id="walletAccount" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="09xx..." type="text" value="0909 999 888">
+                        </div>
+                        
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-gray-500 uppercase">Link QR Code</label>
+                            <input id="qrCodeUrl" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="https://..." type="text" value="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ThankYou">
+                            <p class="text-[10px] text-gray-500">Dùng vietqr.io để tạo link QR đẹp nhé!</p>
+                        </div>
+                        
+                        <!-- Chọn Theme Màu Sắc -->
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-gray-500 uppercase flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
+                                    <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
+                                    <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                                    <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
+                                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
+                                </svg>
+                                Chế Độ Màu Sắc
+                            </label>
+                            <select id="themeSelect" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition cursor-pointer">
+                                <option value="default">🎨 Mặc Định (Hồng - Tím)</option>
+                                <option value="ocean">🌊 Đại Dương (Xanh Dương)</option>
+                                <option value="sunset">🌅 Hoàng Hôn (Cam - Đỏ)</option>
+                                <option value="forest">🌲 Rừng Xanh (Xanh Lá)</option>
+                                <option value="candy">🍭 Kẹo Ngọt (Hồng Pastel)</option>
+                                <option value="dark">🌙 Tối (Dark Mode)</option>
+                                <option value="gradient">🌈 Cầu Vồng</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Hiệu Ứng Đặc Biệt -->
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-gray-500 uppercase flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                                Hiệu Ứng Đặc Biệt
+                            </label>
+                            <select id="particleSelect" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition cursor-pointer">
+                                <option value="none">🚫 Không có hiệu ứng</option>
+                                <option value="snow">❄️ Tuyết rơi</option>
+                            </select>
+                            <p class="text-[10px] text-gray-500">Hiệu ứng làm trang đẹp và thu hút hơn!</p>
+                        </div>
+                        
+                        <!-- Nhạc Nền -->
+                        <div class="space-y-2 bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-xl border border-purple-200">
+                            <div class="flex items-center justify-between">
+                                <label class="text-xs font-bold text-gray-700 uppercase flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M9 18V5l12-2v13"></path>
+                                        <circle cx="6" cy="18" r="3"></circle>
+                                        <circle cx="18" cy="16" r="3"></circle>
+                                    </svg>
+                                    Nhạc Nền
+                                </label>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="musicToggle" class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                </label>
+                            </div>
+                            <select id="musicSelect" class="w-full px-3 py-2 text-sm rounded-lg border border-purple-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                                <option value="">Chọn nhạc nền...</option>
+                                <optgroup label="🎤 Nhạc Việt Yêu Thích">
+                                    <option value="custom1">🎵 Sếp Mai Number One (Mai Lisa)</option>
+                                    <option value="custom2">🎵 Đen - Nấu ăn cho em ft. PiaLinh</option>
+                                    <option value="custom3">🎵 Tôi nuôi cô - Châu Tinh trì</option>
+                                </optgroup>
+                            </select>
+                            <p class="text-[10px] text-gray-500 flex items-center gap-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M12 16v-4"></path>
+                                    <path d="M12 8h.01"></path>
+                                </svg>
+                                Nhạc giúp tăng khả năng donate! 🎶
+                            </p>
+                        </div>
+                        
+                        <div class="pt-4 border-t border-gray-200/50">
+                            <button id="shareBtn" class="w-full bg-gradient-to-r from-primary to-accent text-white font-bold py-3 rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all flex items-center justify-center gap-2 mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                                </svg>
+                                Tạo Link Chia Sẻ
+                            </button>
+                            
+                            <!-- Khu vực hiển thị link -->
+                            <div id="shareLinkContainer" class="hidden bg-white/50 p-3 rounded-xl border border-gray-200 animate-fade-in-up">
+                                <p class="text-xs font-bold text-gray-500 mb-2">🔗 Link của bạn:</p>
+                                <div class="flex gap-2">
+                                    <input 
+                                        id="shareLinkInput" 
+                                        readonly 
+                                        class="bg-white w-full text-xs p-2 rounded border border-gray-200 text-gray-600 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" 
+                                        value=""
+                                    >
+                                    <button 
+                                        id="copyLinkBtn" 
+                                        class="p-2 rounded text-white transition-all bg-gray-800 hover:bg-gray-900" 
+                                        title="Copy link"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                                            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+                                        </svg>
+                                    </button>
+                                    <button 
+                                        id="viewLinkBtn" 
+                                        class="p-2 bg-blue-500 rounded text-white hover:bg-blue-600 transition-all" 
+                                        title="Xem trang thực tế"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Preview bên phải -->
+                <div class="w-full lg:w-2/3">
+                    <!-- Nút Edit (chỉ hiện khi ở chế độ view) -->
+                    <button 
+                        id="editBtn" 
+                        class="hidden fixed top-4 right-4 bg-white/90 hover:bg-white p-3 rounded-full transition-all z-50 shadow-xl hover:scale-110" 
+                        title="Chỉnh sửa trang của bạn"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                            <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path>
+                        </svg>
+                    </button>
+                    
+                    <div class="lg:hidden bg-yellow-100 text-yellow-800 p-3 rounded-lg mb-4 text-center text-sm font-bold">
+                        👇 Kéo xuống để xem bản xem trước 👇
+                    </div>
+                    
+                    <div class="opacity-90 hover:opacity-100 transition-opacity duration-500">
+                        <div class="w-full max-w-2xl mx-auto glass-panel rounded-[24px] overflow-hidden relative shadow-2xl animate-fade-in-up">
+                            <!-- Header -->
+                            <div class="bg-gradient-to-r from-[#ff758c] to-[#ff7eb3] p-8 text-center text-white theme-transition">
+                                <div class="relative inline-block">
+                                    <img id="previewAvatar" alt="Avatar" class="w-28 h-28 rounded-full border-4 border-white/80 bg-white object-cover mx-auto mb-4 shadow-lg" src="https://api.dicebear.com/7.x/fun-emoji/svg?seed=Lucky">
+                                </div>
+                                <h1 id="previewTitle" class="font-hand text-4xl md:text-5xl mb-2 drop-shadow-md">BẠN TỐT BỤNG 🥺</h1>
+                                <p id="previewSlogan" class="text-lg italic opacity-90 font-medium">"Sự giàu có của tôi phụ thuộc vào lòng tốt của bạn"</p>
+                            </div>
+                            
+                            <!-- Content -->
+                            <div class="p-6 md:p-8 space-y-8">
+                                <!-- Tại sao nên nuôi tôi -->
+                                <section>
+                                    <div class="text-center mb-6">
+                                        <h2 class="text-[#d63031] font-extrabold text-xl uppercase tracking-wider inline-block relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-12 after:h-1 after:bg-[#d63031] after:rounded-full">
+                                            🎯 Tại Sao Nên Nuôi Tôi?
+                                        </h2>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="bg-white/60 p-5 rounded-2xl text-center hover:-translate-y-1 transition-transform duration-300 shadow-sm border border-white/40">
+                                            <div class="text-primary flex justify-center mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M16 7h6v6"></path>
+                                                    <path d="m22 7-8.5 8.5-5-5L2 17"></path>
+                                                </svg>
+                                            </div>
+                                            <h3 class="font-bold text-gray-800 mb-2">Sao Kê Realtime</h3>
+                                            <p class="text-sm text-gray-600 leading-snug">Cập nhật từng giây! Nhanh hơn cả tốc độ bạn chuyển tiền.</p>
+                                        </div>
+                                        
+                                        <div class="bg-white/60 p-5 rounded-2xl text-center hover:-translate-y-1 transition-transform duration-300 shadow-sm border border-white/40">
+                                            <div class="text-primary flex justify-center mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="m21 21-4.34-4.34"></path>
+                                                    <circle cx="11" cy="11" r="8"></circle>
+                                                </svg>
+                                            </div>
+                                            <h3 class="font-bold text-gray-800 mb-2">Minh Bạch 300%</h3>
+                                            <p class="text-sm text-gray-600 leading-snug">Báo cáo cả việc mua ly trà sữa full topping.</p>
+                                        </div>
+                                        
+                                        <div class="bg-white/60 p-5 rounded-2xl text-center hover:-translate-y-1 transition-transform duration-300 shadow-sm border border-white/40">
+                                            <div class="text-primary flex justify-center mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M11 17h3v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a3.16 3.16 0 0 0 2-2h1a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a5 5 0 0 0-2-4V3a4 4 0 0 0-3.2 1.6l-.3.4H11a6 6 0 0 0-6 6v1a5 5 0 0 0 2 4v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1z"></path>
+                                                    <path d="M16 10h.01"></path>
+                                                    <path d="M2 8v1a2 2 0 0 0 2 2h1"></path>
+                                                </svg>
+                                            </div>
+                                            <h3 class="font-bold text-gray-800 mb-2">Chi Tiêu Hợp Lý</h3>
+                                            <p class="text-sm text-gray-600 leading-snug">Không G63. Chỉ mì tôm 2 trứng và trà đá.</p>
+                                        </div>
+                                        
+                                        <div class="bg-white/60 p-5 rounded-2xl text-center hover:-translate-y-1 transition-transform duration-300 shadow-sm border border-white/40">
+                                            <div class="text-primary flex justify-center mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
+                                                    <path d="M12 18h.01"></path>
+                                                </svg>
+                                            </div>
+                                            <h3 class="font-bold text-gray-800 mb-2">App Tracking</h3>
+                                            <p class="text-sm text-gray-600 leading-snug">Theo dõi 24/7 tôi ăn gì, ở đâu như 'Big Brother'.</p>
+                                        </div>
+                                    </div>
+                                </section>
+                                
+                                <!-- Cam kết vàng -->
+                                <section>
+                                    <div class="text-center mb-6">
+                                        <h2 class="text-[#d63031] font-extrabold text-xl uppercase tracking-wider inline-block relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-12 after:h-1 after:bg-[#d63031] after:rounded-full">
+                                            🎪 Cam Kết Vàng
+                                        </h2>
+                                    </div>
+                                    <div class="bg-white/50 rounded-2xl p-6 shadow-sm">
+                                        <div class="flex items-start gap-3 mb-3 text-sm md:text-base text-gray-700">
+                                            <span class="text-yellow-500 mt-1 flex-shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <circle cx="12" cy="12" r="4"></circle>
+                                                    <path d="M12 2v2"></path>
+                                                    <path d="M12 20v2"></path>
+                                                    <path d="m4.93 4.93 1.41 1.41"></path>
+                                                    <path d="m17.66 17.66 1.41 1.41"></path>
+                                                    <path d="M2 12h2"></path>
+                                                    <path d="M20 12h2"></path>
+                                                    <path d="m6.34 17.66-1.41 1.41"></path>
+                                                    <path d="m19.07 4.93-1.41 1.41"></path>
+                                                </svg>
+                                            </span>
+                                            <span><strong>Sao kê mỗi ngày:</strong> Cập nhật lúc 6h sáng, đều như vắt chanh!</span>
+                                        </div>
+                                        <div class="flex items-start gap-3 mb-3 text-sm md:text-base text-gray-700">
+                                            <span class="text-yellow-500 mt-1 flex-shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path>
+                                                    <path d="M14 2v5a1 1 0 0 0 1 1h5"></path>
+                                                    <path d="M10 9H8"></path>
+                                                    <path d="M16 13H8"></path>
+                                                    <path d="M16 17H8"></path>
+                                                </svg>
+                                            </span>
+                                            <span><strong>Không giấu giếm:</strong> Từ tô phở 50k đến hộp sữa chua 8k.</span>
+                                        </div>
+                                        <div class="flex items-start gap-3 mb-3 text-sm md:text-base text-gray-700">
+                                            <span class="text-yellow-500 mt-1 flex-shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M3 5v14"></path>
+                                                    <path d="M8 5v14"></path>
+                                                    <path d="M12 5v14"></path>
+                                                    <path d="M17 5v14"></path>
+                                                    <path d="M21 5v14"></path>
+                                                </svg>
+                                            </span>
+                                            <span><strong>Full hóa đơn:</strong> Chụp bill, quét mã vạch, lưu biên lai đầy đủ.</span>
+                                        </div>
+                                        <div class="flex items-start gap-3 mb-3 text-sm md:text-base text-gray-700">
+                                            <span class="text-yellow-500 mt-1 flex-shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"></path>
+                                                    <rect x="2" y="6" width="14" height="12" rx="2"></rect>
+                                                </svg>
+                                            </span>
+                                            <span><strong>Video unboxing:</strong> Mở từng gói mì tôm live trên Facebook.</span>
+                                        </div>
+                                        <div class="flex items-start gap-3 mb-3 text-sm md:text-base text-gray-700">
+                                            <span class="text-yellow-500 mt-1 flex-shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path>
+                                                </svg>
+                                            </span>
+                                            <span><strong>Hotline 24/7:</strong> Gọi hỏi tôi ăn gì bất cứ lúc nào.</span>
+                                        </div>
+                                        <div class="flex items-start gap-3 mb-3 text-sm md:text-base text-gray-700">
+                                            <span class="text-yellow-500 mt-1 flex-shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path>
+                                                </svg>
+                                            </span>
+                                            <span><strong>Không block:</strong> Hỏi khó đến mấy cũng trả lời.</span>
+                                        </div>
+                                    </div>
+                                </section>
+                                
+                                <!-- So sánh -->
+                                <section>
+                                    <div class="text-center mb-6">
+                                        <h2 class="text-[#d63031] font-extrabold text-xl uppercase tracking-wider inline-block relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-12 after:h-1 after:bg-[#d63031] after:rounded-full">
+                                            💰 So Sánh Nè
+                                        </h2>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row gap-4">
+                                        <div class="flex-1 bg-red-500/10 border border-red-500/20 rounded-xl p-5">
+                                            <h3 class="text-center font-bold text-red-700 uppercase mb-4">Người Khác</h3>
+                                            <ul class="space-y-2 text-sm text-gray-700">
+                                                <li class="flex gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-500 w-4 h-4 mt-0.5 flex-shrink-0">
+                                                        <path d="M18 6 6 18"></path>
+                                                        <path d="m6 6 12 12"></path>
+                                                    </svg>
+                                                    Sao kê sau 3 năm
+                                                </li>
+                                                <li class="flex gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-500 w-4 h-4 mt-0.5 flex-shrink-0">
+                                                        <path d="M18 6 6 18"></path>
+                                                        <path d="m6 6 12 12"></path>
+                                                    </svg>
+                                                    File Excel mờ tịt
+                                                </li>
+                                                <li class="flex gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-500 w-4 h-4 mt-0.5 flex-shrink-0">
+                                                        <path d="M18 6 6 18"></path>
+                                                        <path d="m6 6 12 12"></path>
+                                                    </svg>
+                                                    Số liệu "làm tròn"
+                                                </li>
+                                                <li class="flex gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-500 w-4 h-4 mt-0.5 flex-shrink-0">
+                                                        <path d="M18 6 6 18"></path>
+                                                        <path d="m6 6 12 12"></path>
+                                                    </svg>
+                                                    Hay block người hỏi
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="flex-1 bg-green-500/10 border border-green-500/20 rounded-xl p-5">
+                                            <h3 class="text-center font-bold text-green-700 uppercase mb-4">Nuôi Tôi</h3>
+                                            <ul class="space-y-2 text-sm text-gray-700">
+                                                <li class="flex gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600 w-4 h-4 mt-0.5 flex-shrink-0">
+                                                        <path d="M20 6 9 17l-5-5"></path>
+                                                    </svg>
+                                                    Sao kê TRƯỚC khi tiêu
+                                                </li>
+                                                <li class="flex gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600 w-4 h-4 mt-0.5 flex-shrink-0">
+                                                        <path d="M20 6 9 17l-5-5"></path>
+                                                    </svg>
+                                                    File Excel 4K Ultra HD
+                                                </li>
+                                                <li class="flex gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600 w-4 h-4 mt-0.5 flex-shrink-0">
+                                                        <path d="M20 6 9 17l-5-5"></path>
+                                                    </svg>
+                                                    Chính xác từng đồng
+                                                </li>
+                                                <li class="flex gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600 w-4 h-4 mt-0.5 flex-shrink-0">
+                                                        <path d="M20 6 9 17l-5-5"></path>
+                                                    </svg>
+                                                    Rep inbox siêu tốc
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </section>
+                                
+                                <!-- Biểu đồ chi tiêu -->
+                                <section>
+                                    <div class="text-center mb-6">
+                                        <h2 class="text-[#d63031] font-extrabold text-xl uppercase tracking-wider inline-block relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-12 after:h-1 after:bg-[#d63031] after:rounded-full">
+                                            📈 Tiền Bay Đi Đâu?
+                                        </h2>
+                                    </div>
+                                    <div class="bg-white/50 rounded-2xl p-6 shadow-sm space-y-4">
+                                        <div>
+                                            <div class="flex justify-between text-sm font-bold text-gray-700 mb-1">
+                                                <span>Ăn uống (Mì tôm, trứng)</span>
+                                                <span>40%</span>
+                                            </div>
+                                            <div class="h-3 bg-gray-200/50 rounded-full overflow-hidden">
+                                                <div class="h-full rounded-full bg-[#FF6B6B]" style="width: 40%;"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between text-sm font-bold text-gray-700 mb-1">
+                                                <span>Điện nước Internet</span>
+                                                <span>20%</span>
+                                            </div>
+                                            <div class="h-3 bg-gray-200/50 rounded-full overflow-hidden">
+                                                <div class="h-full rounded-full bg-[#4ECDC4]" style="width: 20%;"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between text-sm font-bold text-gray-700 mb-1">
+                                                <span>Thuê nhà</span>
+                                                <span>15%</span>
+                                            </div>
+                                            <div class="h-3 bg-gray-200/50 rounded-full overflow-hidden">
+                                                <div class="h-full rounded-full bg-[#ffeaa7]" style="width: 15%;"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between text-sm font-bold text-gray-700 mb-1">
+                                                <span>Y tế</span>
+                                                <span>10%</span>
+                                            </div>
+                                            <div class="h-3 bg-gray-200/50 rounded-full overflow-hidden">
+                                                <div class="h-full rounded-full bg-[#74b9ff]" style="width: 10%;"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between text-sm font-bold text-gray-700 mb-1">
+                                                <span>Học tập</span>
+                                                <span>10%</span>
+                                            </div>
+                                            <div class="h-3 bg-gray-200/50 rounded-full overflow-hidden">
+                                                <div class="h-full rounded-full bg-[#a29bfe]" style="width: 10%;"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between text-sm font-bold text-gray-700 mb-1">
+                                                <span>Giải trí</span>
+                                                <span>5%</span>
+                                            </div>
+                                            <div class="h-3 bg-gray-200/50 rounded-full overflow-hidden">
+                                                <div class="h-full rounded-full bg-[#fd79a8]" style="width: 5%;"></div>
+                                            </div>
+                                        </div>
+                                        <p class="text-center text-xs text-gray-500 mt-4">*Biểu đồ cập nhật hàng tuần (hứa danh dự)!</p>
+                                    </div>
+                                </section>
+                                
+                                <!-- CTA Donate -->
+                                <div class="bg-gradient-to-tr from-[#FF512F] to-[#DD2476] rounded-2xl p-8 text-center text-white shadow-xl transform transition hover:scale-[1.01]">
+                                    <h2 class="font-hand text-4xl mb-2">💳 DONATE NGAY ĐI!</h2>
+                                    <p class="text-sm opacity-90 mb-6">(Nếu bạn đã cười khi đọc những dòng trên)</p>
+                                    
+                                    <div class="bg-white p-3 rounded-xl inline-block mb-4 shadow-inner">
+                                        <img id="previewQR" alt="QR Code" class="w-40 h-40 object-contain" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ThankYou">
+                                    </div>
+                                    
+                                    <p class="text-xs font-bold mb-6 animate-pulse">⚡ Chuyển xong là có mail tự động! ⚡</p>
+                                    
+                                    <div class="space-y-3">
+                                        <button id="copyBankBtn" class="w-full bg-white text-gray-800 p-4 rounded-xl flex items-center justify-between hover:bg-gray-50 transition-colors shadow-lg shadow-black/5 group">
+                                            <div class="flex items-center gap-3 font-bold text-lg">
+                                                <span class="text-primary">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+                                                        <line x1="2" x2="22" y1="10" y2="10"></line>
+                                                    </svg>
+                                                </span>
+                                                <span id="previewBankName">Techcombank</span>
+                                            </div>
+                                            <div class="font-mono bg-gray-100 px-3 py-1 rounded text-base flex items-center gap-2 group-active:scale-95 transition-transform">
+                                                <span id="previewBankAccount">1900 1234 5678</span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-50">
+                                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                                                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+                                                </svg>
+                                            </div>
+                                        </button>
+                                        
+                                        <button id="copyWalletBtn" class="w-full bg-white text-gray-800 p-4 rounded-xl flex items-center justify-between hover:bg-gray-50 transition-colors shadow-lg shadow-black/5 group">
+                                            <div class="flex items-center gap-3 font-bold text-lg">
+                                                <span class="text-primary">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"></path>
+                                                        <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path>
+                                                    </svg>
+                                                </span>
+                                                <span id="previewWalletName">Momo</span>
+                                            </div>
+                                            <div class="font-mono bg-gray-100 px-3 py-1 rounded text-base flex items-center gap-2 group-active:scale-95 transition-transform">
+                                                <span id="previewWalletAccount">0909 999 888</span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-50">
+                                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                                                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+                                                </svg>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast notification -->
+    <div id="toast" class="fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900/90 text-white px-6 py-3 rounded-full shadow-2xl transition-all duration-300 z-50 flex items-center gap-2 translate-y-20 opacity-0 pointer-events-none">
+        <span class="text-xl">✨</span>
+        <span id="toastMessage" class="font-medium"></span>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
