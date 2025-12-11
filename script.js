@@ -227,6 +227,155 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Hiển thị thông báo góc màn hình để hỏi user có muốn mở nhạc không
+function showStartExperiencePopup(musicTrack) {
+    // Tạo notification ở góc dưới bên phải
+    const notification = document.createElement('div');
+    notification.id = 'musicNotification';
+    notification.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        z-index: 10000;
+        max-width: 350px;
+        animation: slideInRight 0.4s ease;
+        backdrop-filter: blur(10px);
+    `;
+    
+    const trackName = musicTracks[musicTrack]?.name || 'nhạc nền';
+    
+    notification.innerHTML = `
+        <div style="display: flex; align-items: start; gap: 12px;">
+            <div style="font-size: 32px; flex-shrink: 0;">🎵</div>
+            <div style="flex: 1;">
+                <div style="font-weight: bold; font-size: 16px; margin-bottom: 6px;">
+                    Phát nhạc nền?
+                </div>
+                <div style="font-size: 13px; opacity: 0.9; margin-bottom: 12px; line-height: 1.4;">
+                    ${trackName}
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button id="acceptMusicBtn" style="
+                        flex: 1;
+                        background: white;
+                        color: #667eea;
+                        border: none;
+                        padding: 10px 20px;
+                        border-radius: 8px;
+                        font-size: 14px;
+                        font-weight: bold;
+                        cursor: pointer;
+                        transition: all 0.2s ease;
+                    ">
+                        ✓ Có
+                    </button>
+                    <button id="declineMusicBtn" style="
+                        flex: 1;
+                        background: rgba(255, 255, 255, 0.2);
+                        color: white;
+                        border: 1px solid rgba(255, 255, 255, 0.3);
+                        padding: 10px 20px;
+                        border-radius: 8px;
+                        font-size: 14px;
+                        font-weight: bold;
+                        cursor: pointer;
+                        transition: all 0.2s ease;
+                    ">
+                        ✗ Không
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Thêm CSS animations
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideInRight {
+            from { 
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes slideOutRight {
+            from { 
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to { 
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+        #acceptMusicBtn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        #declineMusicBtn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+        @media (max-width: 640px) {
+            #musicNotification {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: calc(100% - 20px);
+            }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Xử lý nút "Có" - Bật nhạc
+    document.getElementById('acceptMusicBtn').addEventListener('click', () => {
+        inputs.musicToggle.checked = true;
+        inputs.musicSelect.disabled = false;
+        playMusic(musicTrack);
+        
+        // Xóa notification với animation
+        notification.style.animation = 'slideOutRight 0.3s ease';
+        setTimeout(() => {
+            notification.remove();
+            style.remove();
+        }, 300);
+        
+        showToast('🎵 Đã bật nhạc nền! Chúc bạn trải nghiệm vui vẻ!');
+    });
+    
+    // Xử lý nút "Không" - Tắt notification
+    document.getElementById('declineMusicBtn').addEventListener('click', () => {
+        notification.style.animation = 'slideOutRight 0.3s ease';
+        setTimeout(() => {
+            notification.remove();
+            style.remove();
+        }, 300);
+        
+        showToast('Bạn có thể bật nhạc bất kỳ lúc nào! 🎶');
+    });
+    
+    // Tự động ẩn sau 15 giây nếu user không click
+    setTimeout(() => {
+        if (document.getElementById('musicNotification')) {
+            notification.style.animation = 'slideOutRight 0.3s ease';
+            setTimeout(() => {
+                notification.remove();
+                style.remove();
+            }, 300);
+        }
+    }, 15000);
+}
+
 // Load dữ liệu từ URL khi trang được tải
 function loadFromURL() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -284,12 +433,16 @@ function loadFromURL() {
             const musicEnabled = (data.m !== undefined ? data.m === 1 : (data.musicEnabled !== undefined ? data.musicEnabled : defaults.musicEnabled));
             const musicTrack = data.mt || data.musicTrack || defaults.musicTrack;
             
-            inputs.musicToggle.checked = musicEnabled;
-            inputs.musicSelect.disabled = !musicEnabled;
+            // Set up music controls
+            inputs.musicToggle.checked = false;
+            inputs.musicSelect.disabled = true;
             
             if (musicEnabled && musicTrack) {
                 inputs.musicSelect.value = musicTrack;
-                setTimeout(() => playMusic(musicTrack), 1000);
+                // Hiện popup "Bắt đầu trải nghiệm" để user click và kích hoạt nhạc
+                setTimeout(() => {
+                    showStartExperiencePopup(musicTrack);
+                }, 800);
             }
             
             // Cập nhật preview
@@ -688,11 +841,27 @@ Hoặc dùng:
             }
         });
         
-        // Phát nhạc
-        audioPlayer.play().catch(err => {
-            console.error('Lỗi khi phát nhạc:', err);
-            showToast('⚠️ Không thể phát nhạc. Vui lòng upload lên Catbox.moe!');
-        });
+        // Phát nhạc với xử lý lỗi autoplay
+        const playPromise = audioPlayer.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                // Phát nhạc thành công
+                console.log('Nhạc đang phát:', track.name);
+            }).catch(err => {
+                console.error('Lỗi khi phát nhạc:', err);
+                
+                if (err.name === 'NotAllowedError') {
+                    // Lỗi autoplay - cần user interaction
+                    showToast('⚠️ Vui lòng BẬT nhạc thủ công! (Trình duyệt chặn autoplay)');
+                    inputs.musicToggle.checked = false;
+                    inputs.musicSelect.disabled = true;
+                    stopMusic();
+                } else {
+                    showToast('❌ Không thể phát nhạc. Vui lòng kiểm tra link!');
+                }
+            });
+        }
         
         // Lưu vào localStorage
         const savedData = JSON.parse(localStorage.getItem('nuoi-toi-data') || '{}');
